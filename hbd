@@ -1,0 +1,40 @@
+Enter file contents here<!DOCTYPE html>
+<html><head><title>Anika's Birthday Card</title></head>
+<body>
+  <h1>HW 2 Web Programming Fall 2016</h1><h2>Happy Birthday!</h2>
+   
+
+  
+    <p>  Happy Birthday, Daddy! I hope you have a wonderful day! Thanks for being the best father a child could ever ask for. I 'm so thankful and blessed to have you in my life. I love you always, and Happy Birthday! Love, Anika</p>
+    <img
+         src="http://www.orsayoban.co.uk/image/cache/data/cg%20happy%20birthday%20hearts-800x800.jpg" alt="HBD " style="width:300px;height:300px;" >
+  </body>
+</html>
+body {
+    background-color: lightblue;
+} 
+h1 {
+    color: green;
+  text-shadow: 2px 2px #ff0000;
+  
+}
+h2 {
+    color: red;
+  text-decoration: underline;
+  text-align: center;
+text-shadow: 2px 2px #ff0000;
+}
+p {
+    color: purple;
+  text-decoration: underline;
+  text-align: center;
+  font-style: italic;
+  font-size: 40px;
+
+  
+
+}
+img {
+    border-radius: 50%;
+  
+}
