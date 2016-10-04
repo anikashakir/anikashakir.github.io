@@ -20,6 +20,7 @@
     for (var x=0;x<8;x++)
         for (var y=3;y<5;y++)
           table[y][x]=0;
+	    table[y][x].style.color="blue";
     table[0]=new Array("X",0,"X",0,"X",0,"X",0);
     table[1]=new Array(0,"X",0,"X",0,"X",0,"X");
     table[2]=new Array("X",0,"X",0,"X",0,"X",0);
@@ -32,13 +33,13 @@
     	if((sX==8)&&(sY==8)){ //no previous selected
 	    	if ((table[y][x]==player)||(table[y][x]==player+player)){ //Selected owned pice //player+player= XX or YY which is a king piece
 	    		sX=x;sY=y;
-	    		document.getElementById("b"+x+y).style.background='#00ff00'; 
+	    		document.getElementById("b"+x+y).style.background='#EEEEEE'; 
 	    		noDeselect=false;
 	    	}
     	}else if (((table[y][x]==player)||(table[y][x]==player+player))&&(!noDeselect)){ //Change selections
     			document.getElementById("b"+sX+sY).style.background='#000000';
     			sX=x;sY=y;
-    			document.getElementById("b"+x+y).style.background='#00ff00';
+    			document.getElementById("b"+x+y).style.background='#EEEEEE';
    		}
     	
    		if(isValidMove(x,y)){ //check for valid move
@@ -56,7 +57,7 @@
    			
    			if (jumped){ //Check if the player has another turn
    				if (hasAnotherTurn(x,y)){
-   					document.getElementById("b"+x+y).style.background='#00ff00';
+   					document.getElementById("b"+x+y).style.background='EEEEEE';
    					sX=x; sY=y;
    					noDeselect=true;  //if player has extra turn he can move only the current piece
    				}else{
