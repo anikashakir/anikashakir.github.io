@@ -20,14 +20,14 @@
     for (var x=0;x<8;x++)
         for (var y=3;y<5;y++)
           table[y][x]=0;
-	   document.getElementByID("table[y][x]").style.color="blue";
+	   //document.getElementByID("table[y][x]").style.color="blue";
     table[0]=new Array("X",0,"X",0,"X",0,"X",0);
     table[1]=new Array(0,"X",0,"X",0,"X",0,"X");
     table[2]=new Array("X",0,"X",0,"X",0,"X",0);
     table[5]=new Array(0,"Y",0,"Y",0,"Y",0,"Y");
     table[6]=new Array("Y",0,"Y",0,"Y",0,"Y",0);
     table[7]=new Array(0,"Y",0,"Y",0,"Y",0,"Y");
-    table[0].style.color="blue"
+    document.getElementByID("table[0]").style.color="blue"
     
     function move(x, y) {
     	if((sX==8)&&(sY==8)){ //no previous selected
