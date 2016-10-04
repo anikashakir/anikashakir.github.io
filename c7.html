@@ -4,6 +4,7 @@
     <SCRIPT LANGUAGE="JavaScript">
     var table = [];
     var player="X"; //players are X and Y, starts player X
+	    document.getElementByID("player").style.color="blue";
     var countX=12;
     var countY=12;
     
@@ -27,7 +28,7 @@
     table[5]=new Array(0,"Y",0,"Y",0,"Y",0,"Y");
     table[6]=new Array("Y",0,"Y",0,"Y",0,"Y",0);
     table[7]=new Array(0,"Y",0,"Y",0,"Y",0,"Y");
-    document.getElementByID("table[0]").style.color="blue"
+   // document.getElementByID("table[0]").style.color="blue"
     
     function move(x, y) {
     	if((sX==8)&&(sY==8)){ //no previous selected
