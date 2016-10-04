@@ -2,10 +2,8 @@
   <HEAD>
     <TITLE>Checkers</TITLE>
     <SCRIPT LANGUAGE="JavaScript">
-	    
     var table = [];
     var player="X"; //players are X and Y, starts player X
-	    //document.getElementByID("player").style.color="blue";
     var countX=12;
     var countY=12;
     
@@ -22,26 +20,25 @@
     for (var x=0;x<8;x++)
         for (var y=3;y<5;y++)
           table[y][x]=0;
-	   //document.getElementByID("table[y][x]").style.color="blue";
     table[0]=new Array("X",0,"X",0,"X",0,"X",0);
     table[1]=new Array(0,"X",0,"X",0,"X",0,"X");
     table[2]=new Array("X",0,"X",0,"X",0,"X",0);
     table[5]=new Array(0,"Y",0,"Y",0,"Y",0,"Y");
     table[6]=new Array("Y",0,"Y",0,"Y",0,"Y",0);
     table[7]=new Array(0,"Y",0,"Y",0,"Y",0,"Y");
-   // document.getElementByID("table[0]").style.color="blue"
+    
     
     function move(x, y) {
     	if((sX==8)&&(sY==8)){ //no previous selected
 	    	if ((table[y][x]==player)||(table[y][x]==player+player)){ //Selected owned pice //player+player= XX or YY which is a king piece
 	    		sX=x;sY=y;
-	    		document.getElementById("b"+x+y).style.background='#EEEEEE'; 
+	    		document.getElementById("b"+x+y).style.background='#00ff00'; 
 	    		noDeselect=false;
 	    	}
     	}else if (((table[y][x]==player)||(table[y][x]==player+player))&&(!noDeselect)){ //Change selections
-    			document.getElementById("b"+sX+sY).style.background='#000000';
+    			document.getElementById("b"+sX+sY).style.background='#EEEEEE';
     			sX=x;sY=y;
-    			document.getElementById("b"+x+y).style.background='#EEEEEE';
+    			document.getElementById("b"+x+y).style.background='#00ff00';
    		}
     	
    		if(isValidMove(x,y)){ //check for valid move
@@ -49,7 +46,7 @@
    			table[y][x]=table[sY][sX];
    			document.getElementById("b"+sX+sY).value="  ";
    			table[sY][sX]=0;
-   			document.getElementById("b"+sX+sY).style.background='#000000';
+   			document.getElementById("b"+sX+sY).style.background='#EEEEEE';
    			
    			//restore status variables
    			sX=8;
@@ -59,7 +56,7 @@
    			
    			if (jumped){ //Check if the player has another turn
    				if (hasAnotherTurn(x,y)){
-   					document.getElementById("b"+x+y).style.background='EEEEEE';
+   					document.getElementById("b"+x+y).style.background='#00ff00';
    					sX=x; sY=y;
    					noDeselect=true;  //if player has extra turn he can move only the current piece
    				}else{
@@ -323,16 +320,16 @@
     	  window.location.reload(0);
     }
     
-    //function skipTurn(){ //let player skip an extra turn. Without this the game could enter a loophole
-    	//if (noDeselect){
-    	//	noDeselect=false;
-    	//	document.getElementById("b"+sX+sY).style.background='#EEEEEE';
-    	//	sX=8;sY=8;
-    	//	changePlayer();
-    	//}else{
-    	//	alert("Sorry, you can skip turn only after jump")
-    	//}
-    //}
+    function skipTurn(){ //let player skip an extra turn. Without this the game could enter a loophole
+    	if (noDeselect){
+    		noDeselect=false;
+    		document.getElementById("b"+sX+sY).style.background='#EEEEEE';
+    		sX=8;sY=8;
+    		changePlayer();
+    	}else{
+    		alert("Sorry, you can skip turn only after jump")
+    	}
+    }
     
     </SCRIPT>
 	 
