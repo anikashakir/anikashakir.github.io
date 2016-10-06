@@ -77,7 +77,7 @@
     function isValidMove(x,y){ //Check if it is a valid move
    		if (table[y][x]==0){ //player chose an empty cell
    			try{
-		    	if ((table[sY][sX]=="X")||(table[sY][sX]=="XX")){	
+		    	if ((table[sY][sX]=="X")||(table[sY][sX]=="KING")){	
 		    		if(!noDeselect){ //no deselect means extra turn, in extra turn player can only jump, no simple move
 			    		if ((x==sX+1)&&(y==sY+1)){ //simple move
 			    			jumped=false;
@@ -106,7 +106,7 @@
 		    			jumped=true;
 		    			return true;
 		    		}
-		    	}else if ((table[sY][sX]=="Y")||(table[sY][sX]=="YY")){
+		    	}else if ((table[sY][sX]=="Y")||(table[sY][sX]=="KING")){
 		    		if(!noDeselect){
 			    		if ((x==sX+1)&&(y==sY-1)){
 			    			jumped=false;
@@ -138,7 +138,7 @@
 		    	}
    			}catch(err){} //This try catch prevent errors I go out of the bounds of the array
    			try{
-		   		if (table[sY][sX]=="XX"){
+		   		if (table[sY][sX]=="KING"){
 		    		//In this case the piece can move backwards so check those moves
 		    		if(!noDeselect){
 			    		if ((x==sX+1)&&(y==sY-1)){ //simple move
@@ -189,7 +189,7 @@
 		   		}
    			}catch(err){}
    			try{
-	    		if (table[sY][sX]=="YY"){
+	    		if (table[sY][sX]=="KING"){
 	    			if(!noDeselect){
 		    			if ((x==sX+1)&&(y==sY+1)){ //simple move
 			    			jumped=false;
@@ -226,12 +226,12 @@
 		    			jumped=true;
 		    			return true;
 		    		}
-		    		if ((table[sY+1][sX+1]=="XX")&&(x==sX+2)&&(y==sY+2)){ //jump eating king
+		    		if ((table[sY+1][sX+1]=="KING")&&(x==sX+2)&&(y==sY+2)){ //jump eating king
 		    			eat(sX+1,sY+1);
 		    			jumped=true;
 		    			return true;
 		    		}
-		    		if ((table[sY+1][sX-1]=="XX")&&(x==sX-2)&&(y==sY+2)){
+		    		if ((table[sY+1][sX-1]=="KING")&&(x==sX-2)&&(y==sY+2)){
 		    			eat(sX-1,sY+1);
 		    			jumped=true;
 		    			return true;
@@ -276,12 +276,12 @@
 		   	}
     	}catch(err){}
     	try{
-		   	if (table[y][x]=="XX"){
+		   	if (table[y][x]=="KING"){
 		   		if ((table[y-1][x+1]!=0)&&(table[y-2][x+2]==0))
 		   			return true;
 		   		if ((table[y-1][x-1]!=0)&&(table[y-2][x-2]==0))
 		   			return true;
-		   	}else if (table[y][x]=="YY"){
+		   	}else if (table[y][x]=="KING"){
 		   		if ((table[y+1][x+1]!=0)&&(table[y+2][x+2]==0))
 		   			return true;
 		   		if ((table[y+1][x-1]!=0)&&(table[y+2][x-2]==0))
